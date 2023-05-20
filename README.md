@@ -1,6 +1,6 @@
 # CS6910 Assignment 3
 
-The code snippet provided is for implementing a sequence-to-sequence (Seq2Seq) model using PyTorch. It prepares and preprocesses a dataset containing Latin-Devanagari word pairs. It defines an Encoder and Decoder class using RNN cells (LSTM, GRU, or RNN) and initializes the Seq2Seq model with these components. Finally, it performs the forward pass, encoding the source sequence and decoding it to generate the target sequence.\
+The code snippet provided is for implementing a sequence-to-sequence (Seq2Seq) model using PyTorch. It prepares and preprocesses a dataset containing Latin-Devanagari word pairs. It defines an Encoder and Decoder class using RNN cells (LSTM, GRU, or RNN) and initializes the Seq2Seq model with these components. Finally, it performs the forward pass, encoding the source sequence and decoding it to generate the target sequence.
 
 ### Instructions to train and evaluate the model
 1. Install the required libraries:
@@ -24,6 +24,15 @@ Following are the supported command line arguments:
 |  `-lr`, `--learning_rate` |     0.0001    | Learning rate used to optimize model parameters. |
 |  `-do`, `--drop_out` |     0.3    | Dropout value. |
 |  `-ct`, `--cell_type` |     LSTM    | choices = ["RNN", "GRU", "LSTM"]. cell type |
+|  `-es`, `--input_embedding_size` |     256    | choices =[16,32,64,256]. input embedding size |
+|  `-hs`, `--hidden_layer_size` |     256    | choices =[16,32,64,256]. hidden layer size |
+|  `-ne`, `--hidden_layer_size` |     256    | choices =[16,32,64,256]. hidden layer size |
+|  `-hs`, `--hidden_layer_size` |     256    | choices =[16,32,64,256]. hidden layer size |
+|  `-ne`, `--number_of_encoder_layers` |     1    | choices =[1,2,3]. hidden layer size |
+|  `-nd`, `--number_of_decoder_layers` |     1    | choices =[1,2,3]. hidden layer size |
+|  `-bd`, `--bidirectional` |     True    | choices =[True,False]. Bidirectional|
+|  `-at`, `--attention` |     True    | choices =[True,False]. Attention|
+
 \
 4. To evaluate the model, use the following command:
 ```python
