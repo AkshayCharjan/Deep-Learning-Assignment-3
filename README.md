@@ -9,9 +9,8 @@ The code snippet provided is for implementing a sequence-to-sequence (Seq2Seq) m
 
 !pip install wandb
 ```
-2. Give proper path for the dataset and the dataset.\
-files required: 
-4. To train the model run train.py using the below command: 
+2. Give proper path for the dataset and unzip the dataset.\
+3. To train the model run train.py using the below command: 
 ```python
 python train.py -we myname --wp myprojectname
 example: !python /content/train.py -e 10 -do 0.2 -ct "LSTM" -nd 1 -bd True -at True -es 256 -hs 256 -bdi "aksharantar_sampled/" -l "tel"
