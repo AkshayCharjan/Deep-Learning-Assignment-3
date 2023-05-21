@@ -10,9 +10,11 @@ The code snippet provided is for implementing a sequence-to-sequence (Seq2Seq) m
 !pip install wandb
 ```
 2. Give proper path for the dataset.
-3. To train the model run train.py using the below command: 
+files required: 
+4. To train the model run train.py using the below command: 
 ```python
 python train.py -we myname --wp myprojectname
+example: !python /content/train.py -e 10 -do 0.2 -ct "LSTM" -nd 1 -bd True -at True -es 256 -hs 256 -bdi "aksharantar_sampled/" -l "tel"
 ```
 Following are the supported command line arguments:
 
@@ -28,23 +30,21 @@ Following are the supported command line arguments:
 |  `-hs`, `--hidden_layer_size` |     256    | choices =[16,32,64,256]. hidden layer size |
 |  `-ne`, `--number_of_encoder_layers` |     1    | choices =[1,2,3]. hidden layer size |
 |  `-nd`, `--number_of_decoder_layers` |     1    | choices =[1,2,3]. hidden layer size |
-|  `-bd`, `--bidirectional` |     True    | choices =[True,False]. Bidirectional|
+|  `-bdi`, `--bidirectional` |     True    | choices =[True,False]. Bidirectional|
 |  `-at`, `--attention` |     True    | choices =[True,False]. Attention|
-
+|  `-l`, `--lang` |     hin    | Various Languages in the dataset|
 \
 4. To evaluate the model, use the following command:
 ```python
 trainer.test(model, test_dataloader)
 ```
-### Dataset and Data Loaders
-    
 ### Methods
 The training_step method calculates the loss and accuracy of the model during training and logs them using wandb_logger. 
 Similarly, the validation_step method calculates the loss and accuracy of the model during validation and logs them. 
 Finally, the test_step method calculates the loss and accuracy of the model during testing.
 The configure_optimizers method initializes the Adam optimizer with a specified learning rate.
 
-The main code initializes an instance of the seqtoseq class with the specified hyperparameters and trains the model using the fit method of Trainer class provided by PyTorch Lightning. The wandb is used to log the training and validation metrics to the Weights & Biases platform. The max_epochs and devices can also be specified as command line arguments.
+The main code initializes an instance of the seqtoseq class with the specified hyperparameters and trains the model using the fit method of Trainer class provided by PyTorch Lightning. The wandb is used to log the training and validation metrics to the Weights & Biases platform. The max_epochs can also be specified as command line arguments.
 
 ### sweep
 The following code sets up a configuration for a parameter sweep using the wandb.sweep function. The sweep configuration is defined as a dictionary sweep_config.
@@ -99,7 +99,7 @@ sweep_id = wandb.sweep(sweep_config, project=pName)
 ##### Use the wandb.agent function to run the hyperparameter sweep with the given sweep_id and sweep function
 wandb.agent(sweep_id, sweep)
 
-Report Link: https://wandb.ai/cs22m008/Assignment%202%20Part%20A%20main%204/reports/CS6910-Assignment-2--Vmlldzo0MDMzMjY2
+Report Link: https://wandb.ai/cs22m008/Assignment%203%20sweep%20Final%20k/reports/CS6910-Assignment-3--Vmlldzo0NDA1MTYy?accessToken=jh7tk5j7lfmfaok8h197r15cisiki19iaq0omubktdmm67njzfjfo9bhr6cm3wu4
 
 
 
